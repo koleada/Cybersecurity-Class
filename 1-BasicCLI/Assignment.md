@@ -11,5 +11,13 @@
 4. sudo su - prompt changes to something like this: root@DESKTOP-7U1SG72:~#
 5. useradd doesnt do much, adduser does a lot more, as per the image
 ![Picture of running adduser and useradd](https://github.com/koleada/Cybersecurity-Class/blob/main/1-BasicCLI/addingUsers.png?raw=true)
+6. su sally - prompt looks like this: sally@DESKTOP-7U1SG72:~$
+7. Cannot add user as sally as she is not root and is not allowed to run privledged commands at all on this machine.
+8. Delete Bobby - **sudo deluser bobby** (use --remove-home to remove home directory if needed)
+9. changed password using **sudo passwd** 
+10. Why is staying on as root bad? 
+- Its bad for a few reasons, if your in an office and leaving a root shell open, poeple or attackers could use that shell. Applications and services running as root are a security risk for things like privledge escelation. 
+11. **id** - shows you user ID , group ID current user, eg: uid=1002(sally) gid=1002(sally) groups=1002(sally)
 
+### Groups
 
