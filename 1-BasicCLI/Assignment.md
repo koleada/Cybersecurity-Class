@@ -24,3 +24,4 @@
 13. **sudo usermod -aG sudo <username>** - this adds specified user to the sudoers file so they can perform privledged actions
 14. **sudo groupadd <group-name>** - creates a group of the specified name
 15. **sudo usermod -aG <groupname> <username>** - adds specified user to specified group
+16. adding sally to a group called 'cybersec' results in this output from **groups sally**: "sally : sally cybersec"
