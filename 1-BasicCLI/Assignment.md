@@ -10,5 +10,6 @@
 
 4. sudo su - prompt changes to something like this: root@DESKTOP-7U1SG72:~#
 5. useradd doesnt do much, adduser does a lot more, as per the image
+![https://github.com/koleada/Cybersecurity-Class/blob/main/1-BasicCLI/addingUsers.png?raw=true][Picture of running adduser and useradd]
 
 
