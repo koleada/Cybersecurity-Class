@@ -36,6 +36,7 @@
     - **echo 'echo "Hello World!"' >> helloWorld.sh**
     - **chmod +x helloWorld.sh**
 19. Current permisisons for hellowWorld.sh are -rwxr-xr-x, aka 755, owner can read write and execute, group can read and execute, others can read and execute. 
+    
     a. **chmod +775 helloWorld.sh** -> Gives group write access on top of the read and execute access they currenly have.
 20. **getfacl helloWorld.sh** -> gives a labeled breakdown of the permissions of specified file, in this case: 
 ```
