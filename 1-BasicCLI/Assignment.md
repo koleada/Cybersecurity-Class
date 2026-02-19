@@ -20,8 +20,39 @@
 11. **id** - shows you user ID , group ID current user, eg: uid=1002(sally) gid=1002(sally) groups=1002(sally)
 
 ### Groups
+
 12. Sally only belongs to the group "sally". Can be seen using command **groups <username** or **id**(currnetly logged in user only)
 13. **sudo usermod -aG sudo <username>** - this adds specified user to the sudoers file so they can perform privledged actions
 14. **sudo groupadd <group-name>** - creates a group of the specified name
 15. **sudo usermod -aG <groupname> <username>** - adds specified user to specified group
 16. adding sally to a group called 'cybersec' results in this output from **groups sally**: "sally : sally cybersec"
+
+### Permissions and Access Control Lists(ACLs)
+
+17. **mkdir lab1** -> create new directory 
+**ls -la | grep lab1** -> check owner and group owner for the new directory. In this case its 'drwxr-xr-x  2 kole kole  4096 Feb 19 15:24 lab1'
+18. Create bash Hello World
+    - **cd lab1**
+    - **echo 'echo "Hello World!"' >> helloWorld.sh**
+    - **chmod +x helloWorld.sh**
+19. Current permisisons for hellowWorld.sh are -rwxr-xr-x, aka 755, owner can read write and execute, group can read and execute, others can read and execute. 
+    a. **chmod +775 helloWorld.sh** -> Gives group write access on top of the read and execute access they currenly have.
+20. **getfacl helloWorld.sh** -> gives a labeled breakdown of the permissions of specified file, in this case: 
+```
+# owner: kole
+# group: kole
+user::rwx
+group::r-x
+other::r-x
+```
+21. **setfacl -m u:sally:rw helloWorld.sh** -> allow sally to read and write to the specified file. Verified it works using getfacl which gave us this output:
+```
+# file: helloWorld.sh
+# owner: kole
+# group: kole
+user::rwx
+user:sally:rw-
+group::rwx
+mask::rwx
+other::r-x
+```
