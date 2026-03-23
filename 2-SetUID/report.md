@@ -1,8 +1,10 @@
-Task 1: 
+### Task 1: 
 
 run printenv to in terminal to print enviornment variables
 
-Task 2: 
+***
+
+### Task 2: 
 
 Run as is  ./a.out >> output1.txt: 
 ```c
@@ -34,7 +36,9 @@ Then uncomment printenv() recompile and run again. ./a.out >> output2.txt
 Both produce the same exact output. diff output1.txt output2.txt produces no output
 
 
-Task 3 Env Vars and execve():
+***
+
+### Task 3 Env Vars and execve():
 
 compile and run:
 ```c
@@ -57,7 +61,9 @@ This program gets the enviornment variables from the third argument to execve. e
 
 
 
-Task 4 Env Vars and System:
+***
+
+### Task 4 Env Vars and System:
 
 Compilie and run: 
 ```c
@@ -75,7 +81,9 @@ This also prints enviornemnt variables, as system() uses execl() which calls exe
 
 
 
-Task 5 Set-UID Programs:
+***
+
+### Task 5 Set-UID Programs:
 
 Compile:
 
@@ -105,7 +113,9 @@ $ sudo chmod 4755 <program>
 We set three random enviornment variables and when we ran the program we see all enviornment variables make it into the Set-UID program. 
 
 
-Task 6 The PATH Environment Variable and Set-UID Programs: 
+***
+
+### Task 6 The PATH Environment Variable and Set-UID Programs: 
 
 The Set-UID program below is supposed to execute the /bin/ls command; however, the programmer only uses the relative path for the ls command, rather than the absolute path:
 ```c
@@ -130,7 +140,9 @@ make a file called 'ls' in your home directory and to it add:
 This will spawn a root shell effectively escalating privlidges. 
 
 
-Task 7  The LD PRELOAD Environment Variable and Set-UID Programs:
+***
+
+### Task 7  The LD PRELOAD Environment Variable and Set-UID Programs:
 
 • Make myprog a regular program, and run it as a normal user.
 $ ./a.out
@@ -152,7 +164,9 @@ Depends on linux version/type but typically there should be no output
 The dynamic linker ignores LD PRELOAD for SUID programs. If program is privlidged it will ignore injected libraries, eg ignoring/unsetting LD Preload
 
 
-Task 8 Invoking External Programs Using system() versus execve()
+***
+
+### Task 8 Invoking External Programs Using system() versus execve()
 
 ```c
 #include <stdlib.h>
@@ -182,14 +196,16 @@ int main(int argc, char *argv[])
 ```bash
 ./a.out "file.txt; rm protectedFile.txt" 
 ```
-will cat file.txt but then will proceed to remove protectedFile.txt, obvious command injection. 
+	will cat file.txt but then will proceed to remove protectedFile.txt, obvious command injection. 
 
 
 2. Using execve will remove the vulnerability, it will just pass the user controller arg to v[0] which is /bin/cat so we can not execute shell commands. 
 
 
 
-Task 9: Capability Leaking
+***
+
+### Task 9: Capability Leaking
 
 ```c
 #include <stdlib.h>
